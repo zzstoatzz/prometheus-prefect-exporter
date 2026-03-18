@@ -7,9 +7,9 @@ WORKDIR /app
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 COPY ./ ./
-RUN uv sync --no-dev
+RUN uv sync --no-dev && rm -rf /root/.cache/uv
 
 EXPOSE 8000
 USER nobody
 
-CMD [ "uv", "run", "python", "main.py" ]
+CMD [ ".venv/bin/python", "main.py" ]
