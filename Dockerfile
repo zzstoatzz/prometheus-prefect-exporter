@@ -6,12 +6,10 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
-COPY pyproject.toml ./
-RUN uv sync --no-dev
-
 COPY ./ ./
+RUN uv sync --no-dev
 
 EXPOSE 8000
 USER nobody
 
-CMD [ "/app/.venv/bin/python", "main.py" ]
+CMD [ "uv", "run", "python", "main.py" ]
