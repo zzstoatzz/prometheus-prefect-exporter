@@ -1,0 +1,10 @@
+[project]
+name = "prometheus-prefect-exporter"
+version = "4.0.0"
+description = "Prometheus exporter for Prefect metrics"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.32,<3",
+    "prometheus-client>=0.24,<1",
+    "pydantic>=2.11,<3",
+]
